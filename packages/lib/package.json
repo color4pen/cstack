@@ -1,0 +1,17 @@
+{
+  "name": "@workspace/lib",
+  "version": "0.0.0",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "devDependencies": {
+    "@workspace/db": "workspace:*"
+  },
+  "dependencies": {
+    "@aws-sdk/client-cognito-identity-provider": "^3.616.0",
+    "@aws-sdk/client-s3": "^3.614.0",
+    "@aws-sdk/s3-request-presigner": "^3.614.0",
+    "aws-jwt-verify": "^4.0.1",
+    "next": "14.2.5"
+  }
+}
