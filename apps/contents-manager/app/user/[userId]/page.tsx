@@ -1,13 +1,13 @@
 "use server";
 
-import { GridImage } from "@/components/GridImage";
-import { Pagination } from "@/components/Pagenation";
 import { prisma } from "@workspace/db";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@workspace/ui/components/tabs";
-import { FileGroupList } from "@/components/FileGroupList";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Fragment } from "react";
+import { GridImage } from "@workspace/ui/components/grid-image";
+import { Pagination } from "@workspace/ui/components/pagination-component";
+import { FileGroupList } from "@workspace/ui/components/file-group-list";
 
 type PageParams = {
 	params: { userId: string };
@@ -89,7 +89,7 @@ export default async function ProfilePage({
 					</div>
 				</TabsContent>
 				<TabsContent value="group">
-					<FileGroupList fileGroupList={user.fileGroups} />
+					<FileGroupList fileGroupList={user.fileGroups} linkPrefix="/g/" />
 				</TabsContent>
 			</Tabs>
 		</Fragment>

@@ -1,6 +1,5 @@
 "use client";
-import { usePathname } from "next/navigation";
-import React, {
+import {
 	createContext,
 	useState,
 	useContext,
@@ -8,11 +7,12 @@ import React, {
 	useEffect,
 	useCallback,
 } from "react";
+import { usePathname } from "next/navigation";
 
 const SidebarContext = createContext({
 	isOpen: false,
-	open: () => {},
-	close: () => {},
+	open: () => { },
+	close: () => { },
 });
 
 type SidebarProviderProps = {
@@ -21,12 +21,11 @@ type SidebarProviderProps = {
 
 export function SidebarProvider({ children }: SidebarProviderProps) {
 	const [isOpen, setOpen] = useState(false);
-	const pathname = usePathname();
+	const pathname = usePathname()
 
 	const open = useCallback(() => setOpen(true), []);
 	const close = useCallback(() => setOpen(false), []);
 
-	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
 	useEffect(() => close(), [pathname]);
 
 	return (

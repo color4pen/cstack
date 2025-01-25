@@ -9,7 +9,6 @@ import {
 } from "@workspace/ui/components/table";
 import { Card } from "@workspace/ui/components/card";
 import { DisplayType, type User } from "@prisma/client";
-import { GridImage } from "@/components/GridImage";
 import { UserFileGroupMenu } from "./UserFileGroupMenu";
 
 import {
@@ -25,6 +24,7 @@ import Link from "next/link";
 import { FileGroupWithFiles } from "@workspace/db";
 import { Button } from "@workspace/ui/components/button";
 import { switchFileGroupDisplayType } from "@workspace/lib";
+import { GridImage } from "@workspace/ui/components/grid-image";
 
 type UserFileGroupTableProps = {
 	user: User;

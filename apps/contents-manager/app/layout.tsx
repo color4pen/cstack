@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "@workspace/ui/globals.css"
-import { LoadingProvider } from "@/providers/LoadingProvider";
-import { AlertProvider } from "@/providers/AlertModalProvider";
-import { AuthProvider } from "@/providers/AuthProvider";
-import Sidebar from "@/components/layout/Sidebar";
-import { SidebarProvider } from "@/providers/SidebarProvider";
-import Header from "@/components/layout/Header";
 import { Separator } from "@workspace/ui/components/separator";
 import { cn } from "@workspace/ui/lib/utils";
 import { getUserInfo, getUserInfoByRefreshToken } from "@workspace/lib";
+import { LoadingProvider } from "@workspace/ui/providers/LoadingProvider";
+import { SidebarProvider } from "@workspace/ui/providers/SidebarProvider";
+import { AlertProvider } from "@workspace/ui/providers/AlertModalProvider";
+import { AuthProvider } from "@workspace/ui/providers/AuthProvider";
+import Header from "@workspace/ui/components/layout/Header";
+import Sidebar from "@workspace/ui/components/layout/Sidebar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,25 +28,19 @@ export default async function RootLayout({
 		<html lang="ja">
 			<body className={cn(inter.className, "min-h-[100vh] flex flex-col")}>
 				<AuthProvider>
-					<SidebarProvider>
+					<SidebarProvider >
 						<LoadingProvider>
 							<AlertProvider>
-								<Header userInfo={userInfo} />
+								<Header userInfo={userInfo} login />
 								<Separator />
-								{userInfo ? (
-									<div className="flex gap-4 md:container md:mx-auto">
-										<div className="col-span-2 hidden md:block">
-											<Sidebar />
-										</div>
-										<div className="md:container md:mx-auto md:col-span-10 col-span-12 mt-1 flex flex-col grow">
-											{children}
-										</div>
+								<div className="flex gap-4">
+									<div className="col-span-2 hidden md:block">
+										<Sidebar />
 									</div>
-								) : (
-									<div className="container mx-auto md:w-[60%] px-4">
+									<div className="md:container md:mx-auto md:col-span-10 col-span-12 mt-1 flex flex-col grow">
 										{children}
 									</div>
-								)}
+								</div>
 							</AlertProvider>
 						</LoadingProvider>
 					</SidebarProvider>

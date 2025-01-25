@@ -18,6 +18,6 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-  ],
+, "../../packages/ui/src/components/file-group-list.tsx", "../../packages/ui/src/components/pagination-component.tsxponents.tsx", "../../packages/ui/src/components/grid-image.tsx"  ],
   "exclude": ["node_modules"]
 }

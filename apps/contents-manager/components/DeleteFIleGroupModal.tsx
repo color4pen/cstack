@@ -9,11 +9,11 @@ import {
 	DialogTitle,
 } from "@workspace/ui/components/dialog";
 import { TriangleAlert } from "lucide-react";
-import { useLoading } from "@/providers/LoadingProvider";
-import { useAlert } from "@/providers/AlertModalProvider";
 import { useRouter } from "next/navigation";
 import type { DialogProps } from "@radix-ui/react-dialog";
 import { deleteFileGroup } from "@workspace/lib";
+import { useLoading } from "@workspace/ui/providers/LoadingProvider";
+import { useAlert } from "@workspace/ui/providers/AlertModalProvider";
 
 type DeleteFIleGroupButtonProps = {
 	groupId: string;

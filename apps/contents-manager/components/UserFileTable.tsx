@@ -13,13 +13,13 @@ import { Card } from "@workspace/ui/components/card";
 import { CircleCheck } from "lucide-react";
 import { deleteFile, formatBytes, generateDeleteURL } from "@workspace/lib";
 import { User } from "@prisma/client";
-import { GridImage } from "@/components/GridImage";
-import { useAlert } from "@/providers/AlertModalProvider";
-import { useLoading } from "@/providers/LoadingProvider";
 import { useFileSelect } from "@/hooks/useFileSelect";
 import { UserFileMenu } from "./UserFileMenu";
-import { Pagination } from "./Pagenation";
 import { FileWithGroup } from "@workspace/db";
+import { GridImage } from "@workspace/ui/components/grid-image";
+import { Pagination } from "@workspace/ui/components/pagination-component";
+import { useAlert } from "@workspace/ui/providers/AlertModalProvider";
+import { useLoading } from "@workspace/ui/providers/LoadingProvider";
 
 type UserFileTableProps = {
 	user: User;

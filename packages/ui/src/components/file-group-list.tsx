@@ -1,17 +1,18 @@
 import { Separator } from "@workspace/ui/components/separator";
-import { GridImage } from "./GridImage";
 import Link from "next/link";
 import { FileGroupWithFiles } from "@workspace/db";
+import { GridImage } from "./grid-image";
 
 interface FileGroupListProps {
 	fileGroupList: FileGroupWithFiles[];
+	linkPrefix: string
 }
 
-export function FileGroupList({ fileGroupList }: FileGroupListProps) {
+export function FileGroupList({ fileGroupList, linkPrefix }: FileGroupListProps) {
 	return (
 		<div className="container mx-auto p-4 space-y-6">
 			{fileGroupList.map((fileGroup, index) => (
-				<Link href={`/group/${fileGroup.id}`} key={fileGroup.id}>
+				<Link href={`${linkPrefix}${fileGroup.id}`} key={fileGroup.id}>
 					<div key={fileGroup.id}>
 						<div className="flex flex-col lg:flex-row gap-4">
 							<div className="lg:w-1/3">

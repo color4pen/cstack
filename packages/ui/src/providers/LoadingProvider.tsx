@@ -1,11 +1,11 @@
 "use client";
-import React, { createContext, useState, useContext, type ReactNode } from "react";
-import { LoadingOverlay } from "@/components/LoadingOverlay";
+import { LoadingOverlay } from "@workspace/ui/components/loading-overlay";
+import { createContext, useState, useContext, type ReactNode } from "react";
 
 const LoadingContext = createContext({
 	isLoading: false,
-	showLoading: () => {},
-	hideLoading: () => {},
+	showLoading: () => { },
+	hideLoading: () => { },
 });
 
 type LoadingProviderProps = {

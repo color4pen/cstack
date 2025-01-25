@@ -1,24 +1,25 @@
 "use client";
 
-import React, { Fragment } from "react";
+import { Fragment } from "react";
 import { Sheet, SheetContent, SheetTrigger } from "@workspace/ui/components/sheet";
 import { Button } from "@workspace/ui/components/button";
-import { Menu, Home, FolderOpen } from "lucide-react";
-import Link from "next/link";
-import { useSidebar } from "@/providers/SidebarProvider";
+import { Menu, Home, FolderOpen, FileText, User } from "lucide-react";
+import { useSidebar } from "@workspace/ui/providers/SidebarProvider";
+import { useAuth } from "@workspace/ui/providers/AuthProvider";
 
 const Sidebar = () => {
 	const sidebar = useSidebar();
+	const { user } = useAuth()
 
 	const menuItems = [
 		{ name: "ホーム", href: "/", icon: Home },
-		// { name: "プロフィール", href: `/user/${user?.sub}`, icon: User },
+		{ name: "プロフィール", href: `/user/${user?.sub}`, icon: User },
 		{
 			name: "グループ管理",
 			href: "/user/fileGroups",
 			icon: FolderOpen,
 		},
-		// { name: "ファイル管理", href: "/user/files", icon: FileText },
+		{ name: "ファイル管理", href: "/user/files", icon: FileText },
 	];
 
 	const SidebarContent = () => (
@@ -26,14 +27,14 @@ const Sidebar = () => {
 			<nav className="flex-grow">
 				<div className="sticky top-5">
 					{menuItems.map((item) => (
-						<Link
+						<a
 							key={item.name}
 							href={item.href}
 							className="flex items-center space-x-3 px-4 py-3 text-gray-700 hover:bg-gray-200 rounded-lg transition-colors duration-200"
 						>
 							<item.icon className="h-5 w-5" />
 							<span>{item.name}</span>
-						</Link>
+						</a>
 					))}
 				</div>
 			</nav>

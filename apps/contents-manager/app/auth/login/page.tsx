@@ -5,9 +5,9 @@ import { Fragment, useState } from "react";
 import { Button } from "@workspace/ui/components/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@workspace/ui/components/card";
 import { Input } from "@workspace/ui/components/input";
-import { useAuth } from "@/providers/AuthProvider";
 import { useRouter } from "next/navigation";
 import { loginUser } from "@workspace/lib";
+import { useAuth } from "@workspace/ui/providers/AuthProvider";
 
 export default function LoginPage() {
 	const { user } = useAuth()

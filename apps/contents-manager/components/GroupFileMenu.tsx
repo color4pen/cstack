@@ -12,8 +12,8 @@ import {
 } from "@workspace/ui/components/dropdown-menu";
 import { EllipsisVertical, Eye, Star, Unlink } from "lucide-react";
 import { File, FileGroup } from "@prisma/client";
-import { useAlert } from "@/providers/AlertModalProvider";
 import { updateGroupThumbnail } from "@workspace/lib";
+import { useAlert } from "@workspace/ui/providers/AlertModalProvider";
 
 type GroupFileMenuProps = {
 	file: File;

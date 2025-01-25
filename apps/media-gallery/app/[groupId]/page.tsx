@@ -2,12 +2,10 @@
 
 import { prisma } from "@workspace/db";
 import { redirect } from "next/navigation";
-import { Fragment } from "react";
-import { FileGroupPageMenu } from "./FileGroupPageMenu";
 import Image from "next/image";
-import { Separator } from "@radix-ui/react-separator";
 import { getUserInfo } from "@workspace/lib";
 import { GridImage } from "@workspace/ui/components/grid-image";
+import { Separator } from "@workspace/ui/components/separator";
 import { Pagination } from "@workspace/ui/components/pagination-component";
 
 type PageParams = {
@@ -30,6 +28,7 @@ export default async function GroupPage({ params, searchParams }: PageParams) {
 	if (!fileGroup) {
 		redirect("/");
 	}
+
 	// 所有者でない時
 	if (fileGroup.createdBy !== userInfo?.sub) {
 		// プライベートの時はホーム画面に移動
@@ -37,6 +36,7 @@ export default async function GroupPage({ params, searchParams }: PageParams) {
 			redirect("/");
 		}
 	}
+
 	const files = await prisma.file.findMany({
 		where: { groupId },
 		orderBy: {
@@ -57,10 +57,9 @@ export default async function GroupPage({ params, searchParams }: PageParams) {
 	const maxPage = Math.ceil(fileCount / parItem);
 
 	return (
-		<Fragment>
+		<>
 			<div className="text-3xl m-4">{fileGroup?.name}</div>
 			<div className="container mx-auto px-4 justify-center">
-				<FileGroupPageMenu fileGroup={fileGroup} />
 				{fileGroup.displayType === "list" && (
 					<div className="flex flex-col items-center">
 						{files.map((file, index) => (
@@ -129,6 +128,6 @@ export default async function GroupPage({ params, searchParams }: PageParams) {
 					<Pagination totalPages={maxPage} />
 				</div>
 			</div>
-		</Fragment>
+		</>
 	);
 }

@@ -13,10 +13,10 @@ import { v7 as uuidv7 } from "uuid";
 import { useRouter } from "next/navigation";
 import { Card } from "@workspace/ui/components/card";
 import { CircleCheck, Plus, Undo2 } from "lucide-react";
-import { useLoading } from "@/providers/LoadingProvider";
-import { useAlert } from "@/providers/AlertModalProvider";
 import { formatBytes, generateUploadURL, getUserInfo, getUserInfoByRefreshToken, insertFile } from "@workspace/lib";
 import Link from "next/link";
+import { useLoading } from "@workspace/ui/providers/LoadingProvider";
+import { useAlert } from "@workspace/ui/providers/AlertModalProvider";
 
 interface UploadFile {
 	id: string;

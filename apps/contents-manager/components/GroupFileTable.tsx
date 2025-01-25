@@ -19,10 +19,7 @@ import {
 } from "lucide-react";
 import { deleteFile, formatBytes, generateDeleteURL, updateFiles } from "@workspace/lib";
 import type { File, FileGroup } from "@prisma/client";
-import { GridImage } from "@/components/GridImage";
 import Link from "next/link";
-import { useAlert } from "@/providers/AlertModalProvider";
-import { useLoading } from "@/providers/LoadingProvider";
 import { useRouter } from "next/navigation";
 import { useFileSelect } from "@/hooks/useFileSelect";
 import { FileTableMenu } from "./FileTableMenu";
@@ -45,6 +42,9 @@ import {
 	arrayMove,
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
+import { useAlert } from "@workspace/ui/providers/AlertModalProvider";
+import { useLoading } from "@workspace/ui/providers/LoadingProvider";
+import { GridImage } from "@workspace/ui/components/grid-image";
 
 type GroupFileTableProps = {
 	files: File[];

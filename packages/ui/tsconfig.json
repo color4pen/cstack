@@ -4,9 +4,18 @@
     //"outDir": "dist"
     "baseUrl": ".",
     "paths": {
-      "@workspace/ui/*": ["./src/*"]
-    }
+      "@workspace/ui/*": [
+        "./src/*"
+      ]
+    },
+    "module": "esnext",
+    "moduleResolution": "bundler"
   },
-  "include": ["."],
-  "exclude": ["node_modules", "dist"]
+  "include": [
+    "."
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }

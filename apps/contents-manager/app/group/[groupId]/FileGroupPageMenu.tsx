@@ -11,8 +11,8 @@ import {
 import { ArrowUpDown, EllipsisVertical, Globe, GlobeLock } from "lucide-react";
 import type { FileGroup } from "@prisma/client";
 import Link from "next/link";
-import { useAuth } from "@/providers/AuthProvider";
 import { switchFileGroupPublish, switchFileGroupSortOrder } from "@workspace/lib";
+import { useAuth } from "@workspace/ui/providers/AuthProvider";
 
 type FileGroupPageMenuProps = {
 	fileGroup: FileGroup;

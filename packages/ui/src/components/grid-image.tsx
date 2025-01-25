@@ -1,6 +1,6 @@
 "use client";
 
-import type { File } from "@prisma/client";
+import { File } from "@workspace/db";
 import { Fragment, useState } from "react";
 import { Skeleton } from "@workspace/ui/components/skeleton";
 import Image from "next/image";
